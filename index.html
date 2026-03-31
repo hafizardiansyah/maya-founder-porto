@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founder Portfolio — Kids Space & Meraki House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2B4B;
+    --navy-mid: #2D4270;
+    --navy-light: #3D5A8A;
+    --gold: #C9973A;
+    --gold-light: #E8C068;
+    --gold-pale: #F3E2C0;
+    --cream: #F7F4EF;
+    --off-white: #F0EDE8;
+    --slate: #4A5568;
+    --light-slate: #A0AEC0;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ─── LANGUAGE TOGGLE ─────────────────────────────────────── */
+  .lang-toggle {
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 1000;
+    display: flex;
+    gap: 0;
+    background: var(--navy);
+    border-radius: 2rem;
+    padding: 3px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+  .lang-btn {
+    padding: 0.4rem 1.1rem;
+    border: none;
+    background: transparent;
+    color: var(--light-slate);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    border-radius: 2rem;
+    transition: all 0.3s;
+  }
+  .lang-btn.active {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  /* ─── NAV ─────────────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(27,43,75,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,151,58,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.2rem;
+    margin-left: auto;
+    /* margin-right: 8rem; */
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--light-slate);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── HERO ────────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -30%; right: -10%;
+    width: 60vw; height: 120vh;
+    background: radial-gradient(ellipse, rgba(201,151,58,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 6rem 5rem;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tag-line {
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-tag span {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--light-slate);
+    margin: 1.5rem 0 2.5rem;
+    line-height: 1.6;
+    max-width: 40ch;
+  }
+  .hero-brands {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .brand-pill {
+    padding: 0.5rem 1.3rem;
+    border: 1px solid rgba(201,151,58,0.4);
+    border-radius: 2rem;
+    color: var(--gold-light);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: all 0.3s;
+  }
+  .brand-pill:hover {
+    background: rgba(201,151,58,0.15);
+    border-color: var(--gold);
+  }
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 3rem;
+  }
+  .hero-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 360px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,151,58,0.2);
+    border-radius: 1rem;
+    padding: 1.6rem 1.4rem;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition: all 0.4s;
+    cursor: default;
+  }
+  .stat-card:hover {
+    background: rgba(201,151,58,0.08);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+  .stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--light-slate);
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--light-slate);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    animation: bounce 2s ease infinite;
+  }
+  .scroll-hint svg { opacity: 0.5; }
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ─── SECTIONS COMMON ─────────────────────────────────────── */
+  section { padding: 7rem 5rem; }
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 2px;
+    background: var(--gold);
+  }
+  .section-label span {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── STORY SECTION ───────────────────────────────────────── */
+  .story-section {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .story-left { position: sticky; top: 7rem; }
+  .story-title { color: var(--navy); }
+  .story-accent {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-top: 0.5rem;
+    line-height: 1.6;
+  }
+  .story-right p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--slate);
+    margin-bottom: 1.5rem;
+  }
+  .story-right p strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .story-quote {
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.5rem;
+    background: var(--off-white);
+    border-radius: 0 0.5rem 0.5rem 0;
+    margin: 2rem 0;
+  }
+  .story-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.7;
+    margin: 0 !important;
+  }
+
+  /* ─── MARKET SECTION ──────────────────────────────────────── */
+  .market-section { background: var(--navy); color: var(--white); }
+  .market-section .section-title { color: var(--white); }
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .market-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,151,58,0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+  }
+  .market-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s;
+  }
+  .market-card:hover::before { transform: scaleX(1); }
+  .market-card:hover {
+    background: rgba(201,151,58,0.07);
+    border-color: rgba(201,151,58,0.5);
+    transform: translateY(-4px);
+  }
+  .market-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    line-height: 1;
+  }
+  .market-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+  .market-card p {
+    font-size: 0.88rem;
+    color: var(--light-slate);
+    line-height: 1.7;
+  }
+  .market-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .mstat {
+    background: var(--gold);
+    border-radius: 0.75rem;
+    padding: 1.2rem;
+    text-align: center;
+  }
+  .mstat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--navy);
+  }
+  .mstat-label { font-size: 0.72rem; color: var(--navy); margin-top: 0.2rem; font-weight: 500; }
+
+  /* ─── PORTFOLIO SECTION ───────────────────────────────────── */
+  .portfolio-section { background: var(--off-white); }
+  .portfolio-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+  }
+  .portfolio-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 30px rgba(27,43,75,0.08);
+    transition: transform 0.4s, box-shadow 0.4s;
+  }
+  .portfolio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 50px rgba(27,43,75,0.15);
+  }
+  .pcard-header {
+    background: var(--navy);
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+  }
+  .pcard-header.gold-accent { background: linear-gradient(135deg, var(--navy) 60%, var(--navy-mid)); }
+  .pcard-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+  }
+  .pcard-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+  .pcard-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold-light);
+    font-size: 1rem;
+  }
+  .pcard-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--off-white);
+    border-top: 1px solid var(--off-white);
+  }
+  .pstat {
+    background: var(--white);
+    padding: 1.1rem 1.5rem;
+    text-align: center;
+  }
+  .pstat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .pstat-label { font-size: 0.7rem; color: var(--light-slate); margin-top: 0.2rem; }
+  .pcard-body { padding: 2rem; }
+  .pcard-section { margin-bottom: 1.5rem; }
+  .pcard-section-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--gold-pale);
+  }
+  .pcard-list { list-style: none; }
+  .pcard-list li {
+    font-size: 0.88rem;
+    color: var(--slate);
+    line-height: 1.6;
+    padding: 0.3rem 0;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .pcard-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+  .challenge-box {
+    background: var(--navy);
+    border-radius: 0.75rem;
+    padding: 1.2rem 1.4rem;
+    margin-top: 1.5rem;
+  }
+  .challenge-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .challenge-box p { font-size: 0.84rem; color: var(--light-slate); line-height: 1.65; }
+
+  /* ─── TRACK RECORD ────────────────────────────────────────── */
+  .track-section { background: var(--navy); }
+  .track-section .section-title { color: var(--white); }
+  .track-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .track-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,151,58,0.15);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    transition: all 0.35s;
+  }
+  .track-card:hover {
+    background: rgba(201,151,58,0.06);
+    border-color: rgba(201,151,58,0.4);
+    transform: translateX(4px);
+  }
+  .track-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(201,151,58,0.25);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 3rem;
+  }
+  .track-content h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.6rem; }
+  .track-content p { font-size: 0.87rem; color: var(--light-slate); line-height: 1.7; }
+
+  /* ─── SYSTEMS / PLAYBOOK ──────────────────────────────────── */
+  .systems-section { background: var(--cream); }
+  .systems-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 3rem;
+  }
+  .systems-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+  .sys-card {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 1.8rem 1.5rem;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 2px 20px rgba(27,43,75,0.06);
+    transition: all 0.35s;
+  }
+  .sys-card:hover {
+    box-shadow: 0 8px 35px rgba(27,43,75,0.12);
+    transform: translateY(-4px);
+  }
+  .sys-icon { font-size: 1.8rem; margin-bottom: 0.9rem; }
+  .sys-title { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 1rem; }
+  .sys-list { list-style: none; }
+  .sys-list li { font-size: 0.8rem; color: var(--slate); padding: 0.28rem 0; line-height: 1.5; border-bottom: 1px solid var(--off-white); }
+  .sys-list li:last-child { border-bottom: none; }
+
+  /* ─── VISION ──────────────────────────────────────────────── */
+  .vision-section { background: var(--navy); }
+  .vision-section .section-title { color: var(--white); }
+  .vision-quote {
+    background: var(--gold);
+    border-radius: 1rem;
+    padding: 2.2rem 2.5rem;
+    margin: 2.5rem 0 3.5rem;
+  }
+  .vision-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.65;
+  }
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .phase-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,151,58,0.15);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s;
+  }
+  .phase-card:hover {
+    background: rgba(201,151,58,0.07);
+    border-color: rgba(201,151,58,0.4);
+  }
+  .phase-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(201,151,58,0.12);
+    position: absolute;
+    top: 0.8rem; right: 1rem;
+    line-height: 1;
+  }
+  .phase-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  .phase-title { font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 0.8rem; }
+  .phase-body { font-size: 0.87rem; color: var(--light-slate); line-height: 1.7; }
+
+  /* ─── WHY ME ──────────────────────────────────────────────── */
+  .whyme-section { background: var(--off-white); }
+  .whyme-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 3.5rem;
+  }
+  .whyme-card {
+    background: var(--white);
+    border-radius: 1rem;
+    padding: 1.8rem;
+    border-left: 3px solid var(--gold);
+    box-shadow: 0 2px 16px rgba(27,43,75,0.06);
+    transition: all 0.35s;
+  }
+  .whyme-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(27,43,75,0.12);
+  }
+  .whyme-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.7rem; }
+  .whyme-card p { font-size: 0.86rem; color: var(--slate); line-height: 1.7; }
+
+  /* ─── CTA / CLOSING ───────────────────────────────────────── */
+  .cta-section {
+    background: var(--navy);
+    text-align: center;
+    padding: 8rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80vw; height: 80vh;
+    background: radial-gradient(ellipse, rgba(201,151,58,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  .cta-section h2 em { font-style: italic; color: var(--gold); }
+  .cta-section p {
+    max-width: 55ch;
+    margin: 0 auto 2.5rem;
+    font-size: 1.05rem;
+    color: var(--light-slate);
+    line-height: 1.8;
+  }
+  .cta-contact {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 1.2rem 3rem;
+    border-radius: 3rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 25px rgba(201,151,58,0.3);
+  }
+  .cta-contact:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 35px rgba(201,151,58,0.45);
+  }
+  .cta-contact small {
+    font-size: 0.7rem;
+    font-weight: 400;
+    opacity: 0.7;
+    letter-spacing: 0.08em;
+  }
+  .cta-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+  .cta-badge {
+    padding: 0.5rem 1.3rem;
+    border: 1px solid rgba(201,151,58,0.3);
+    border-radius: 2rem;
+    color: var(--light-slate);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── FOOTER ──────────────────────────────────────────────── */
+  footer {
+    background: rgba(0,0,0,0.3);
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--light-slate);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* ─── REVEAL ANIMATIONS ───────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── RESPONSIVE ──────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    section { padding: 5rem 2rem; }
+    .story-section { grid-template-columns: 1fr; }
+    .story-left { position: static; }
+    .market-grid { grid-template-columns: 1fr; }
+    .portfolio-cards { grid-template-columns: 1fr; }
+    .track-grid { grid-template-columns: 1fr; }
+    .systems-grid { grid-template-columns: repeat(2,1fr); }
+    .phases { grid-template-columns: 1fr; }
+    .whyme-grid { grid-template-columns: 1fr 1fr; }
+    .market-stats-row { grid-template-columns: repeat(2,1fr); }
+    .lang-toggle { top: 1rem; right: 1rem; }
+  }
+
+  /* ─── [data-lang] logic ───────────────────────────────────── */
+  [data-lang="id"] { display: none; }
+  body.lang-id [data-lang="en"] { display: none; }
+  body.lang-id [data-lang="id"] { display: revert; }
+  /* For elements that should always show */
+  [data-lang="both"] { display: revert !important; }
+</style>
+</head>
+<body class="lang-en">
+
+<!-- Language Toggle -->
+<!-- <div class="lang-toggle" data-lang="both">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('id')">ID</button>
+</div> -->
+
+<!-- Navigation -->
+<nav>
+  <a href="#" class="nav-logo">Founder Portfolio</a>
+  <ul class="nav-links">
+    <li><a href="#story" data-lang="en">Story</a><a href="#story" data-lang="id">Cerita</a></li>
+    <li><a href="#market" data-lang="en">Market</a><a href="#market" data-lang="id">Pasar</a></li>
+    <li><a href="#portfolio" data-lang="en">Portfolio</a><a href="#portfolio" data-lang="id">Portofolio</a></li>
+    <li><a href="#vision" data-lang="en">Vision</a><a href="#vision" data-lang="id">Visi</a></li>
+    <li><a href="#contact" data-lang="en">Contact</a><a href="#contact" data-lang="id">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-tag reveal">
+      <span class="hero-tag-line"></span>
+      <span data-lang="en">Founder Portfolio · Early Education</span>
+      <span data-lang="id">Portofolio Founder · Pendidikan Anak Usia Dini</span>
+    </div>
+    <h1 class="reveal reveal-delay-1">
+      <span data-lang="en">Building<br>the Future<br>of <em>Early Education</em></span>
+      <span data-lang="id">Membangun<br>Masa Depan<br><em>Pendidikan Anak</em></span>
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">
+      <span data-lang="en">Two preschool brands built from scratch — by a founder who operates, not just owns.</span>
+      <span data-lang="id">Dua brand prasekolah yang dibangun dari nol — oleh seorang founder yang turun tangan langsung, bukan sekadar memiliki.</span>
+    </p>
+    <div class="hero-brands reveal reveal-delay-3">
+      <span class="brand-pill">Kids Space Bengkulu</span>
+      <span class="brand-pill">Meraki House Bandung</span>
+      <span class="brand-pill" data-lang="en">Operator · Builder · Educator</span>
+      <span class="brand-pill" data-lang="id">Operator · Builder · Educator</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats-grid reveal reveal-delay-2">
+      <div class="stat-card">
+        <div class="stat-val">2</div>
+        <div class="stat-label" data-lang="en">Schools Built</div>
+        <div class="stat-label" data-lang="id">Sekolah Dibangun</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">[X]+</div>
+        <div class="stat-label" data-lang="en">Years Operating</div>
+        <div class="stat-label" data-lang="id">Tahun Beroperasi</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">[X]+</div>
+        <div class="stat-label" data-lang="en">Educators Hired</div>
+        <div class="stat-label" data-lang="id">Pendidik Direkrut</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val">[X]+</div>
+        <div class="stat-label" data-lang="en">Families Served</div>
+        <div class="stat-label" data-lang="id">Keluarga Dilayani</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span data-lang="en">Scroll</span>
+    <span data-lang="id">Gulir</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ═══ FOUNDER STORY ═══════════════════════════════════════════ -->
+<section class="story-section" id="story">
+  <div class="story-left reveal">
+    <div class="section-label">
+      <span data-lang="en">Founder Story</span>
+      <span data-lang="id">Cerita Founder</span>
+    </div>
+    <h2 class="section-title story-title" data-lang="en">The Operator Behind the Brand</h2>
+    <h2 class="section-title story-title" data-lang="id">Operator di Balik Brand</h2>
+    <p class="story-accent" data-lang="en">Not just an owner. A hands-on builder who understands every layer of this business.</p>
+    <p class="story-accent" data-lang="id">Bukan sekadar pemilik. Seorang pembangun yang turun langsung dan memahami setiap lapisan bisnis ini.</p>
+  </div>
+  <div class="story-right">
+    <p class="reveal" data-lang="en">With a degree in Early Childhood Education, I started my career as a teacher, working closely with young children every day. Being in the classroom gave me a clear view of how children actually learn—through play, exploration, and interaction—and how that often doesn’t match what traditional classrooms offer.</p>
+    <p class="reveal" data-lang="id">Saya tidak memasuki dunia pendidikan anak usia dini untuk sekadar mengelola sekolah — <strong>saya masuk untuk menyelesaikan sebuah masalah.</strong> Di kota-kota seperti Bengkulu dan Bandung, pendidikan anak usia dini yang berkualitas sulit diakses atau tidak menarik. Saya membangun Kids Space dan Meraki House bukan dari panduan franchise, melainkan dari nol.</p>
+    <div class="story-quote reveal reveal-delay-1">
+      <p data-lang="en">"I began by running small private classes, creating a more personal and flexible learning environment. Both children and parents responded really well, which showed me there was a real need for this kind of approach."</p>
+      <p data-lang="id">"Saya telah membangun dua sekolah. Saya telah membuktikan modelnya. Kini saya siap membangun brand yang mendominasi pasar pendidikan anak usia dini premium di seluruh Indonesia."</p>
+    </div>
+    <p class="reveal reveal-delay-1" data-lang="en">From there, I developed a sensory-based class focused on hands-on exploration and development. What started as a small program grew quite quickly, and it became clear that many families were looking for more meaningful learning experiences for their children.</p>
+    <p class="reveal reveal-delay-1" data-lang="id">Yang saya temukan adalah pasar yang tersembunyi di depan mata: <strong>orang tua Indonesia semakin selektif</strong>, bersedia berinvestasi dalam pendidikan anak usia dini premium, namun tidak mendapat layanan yang memadai dari sekolah-sekolah generik berkualitas rendah. Saya kini telah membangun dua bukti nyata bahwa brand prasekolah yang dipimpin founder dan berbasis sistem dapat dibangun, dioperasikan secara profitabel, dan direplikasi.</p>
+    <p class="reveal reveal-delay-2" data-lang="en">That journey led me to open a preschool, where I could bring everything together into a more structured system.</p>
+    <p class="reveal reveal-delay-2" data-lang="id"><strong>Saya tidak ingin sekadar mengelola dua sekolah.</strong> Saya sedang membangun infrastruktur untuk brand pendidikan yang dapat diskalakan — dan saya mencari mitra yang melihat peluang yang sama dengan saya.</p>
+    <p class="reveal reveal-delay-2" data-lang="en">Now, I focus on building education programs and schools that are not only meaningful for children, but also sustainable and ready to grow.</p>
+  </div>
+</section>
+
+<!-- ═══ MARKET ═══════════════════════════════════════════════════ -->
+<section class="market-section" id="market">
+  <div class="section-label">
+    <span data-lang="en">Market Opportunity</span>
+    <span data-lang="id">Peluang Pasar</span>
+  </div>
+  <h2 class="section-title reveal" data-lang="en">A $[X]B Market Hiding in Plain Sight</h2>
+  <h2 class="section-title reveal" data-lang="id">Pasar Senilai [X] Triliun Rupiah yang Tersembunyi</h2>
+
+  <div class="market-grid">
+    <div class="market-card reveal">
+      <div class="market-card-num" data-lang="en">[X]M</div>
+      <div class="market-card-num" data-lang="id">[X]Jt</div>
+      <h3 data-lang="en">Underserved Demand</h3>
+      <h3 data-lang="id">Permintaan Belum Terpenuhi</h3>
+      <p data-lang="en">Indonesia has [X]M children aged 0–6. Only [X]% are enrolled in quality early education programs. Middle-class parents are actively seeking premium alternatives.</p>
+      <p data-lang="id">Indonesia memiliki [X] juta anak usia 0–6 tahun. Hanya [X]% yang terdaftar dalam program pendidikan anak usia dini berkualitas. Orang tua kelas menengah aktif mencari alternatif premium.</p>
+    </div>
+    <div class="market-card reveal reveal-delay-1">
+      <div class="market-card-num">< 5%</div>
+      <h3 data-lang="en">Fragmented Supply</h3>
+      <h3 data-lang="id">Pasar yang Terfragmentasi</h3>
+      <p data-lang="en">The preschool market is dominated by low-quality, non-standardized operators. No dominant brand owns the premium segment at scale outside Jakarta.</p>
+      <p data-lang="id">Pasar prasekolah didominasi operator berkualitas rendah yang tidak terstandarisasi. Tidak ada brand yang mendominasi segmen premium secara besar-besaran di luar Jakarta.</p>
+    </div>
+    <div class="market-card reveal reveal-delay-2">
+      <div class="market-card-num">[X]%</div>
+      <h3 data-lang="en">Rising Willingness to Pay</h3>
+      <h3 data-lang="id">Kemampuan Bayar yang Meningkat</h3>
+      <p data-lang="en">Tuition in the premium segment ranges from IDR [X]–[X]M/month. Parent spend on early education has grown [X]% YoY as income levels rise in Tier 2 cities.</p>
+      <p data-lang="id">Uang sekolah di segmen premium berkisar IDR [X]–[X] juta/bulan. Pengeluaran orang tua untuk pendidikan anak usia dini tumbuh [X]% YoY seiring meningkatnya pendapatan di kota Tier 2.</p>
+    </div>
+  </div>
+
+  <div class="market-stats-row reveal">
+    <div class="mstat">
+      <div class="mstat-val">[X]M</div>
+      <div class="mstat-label" data-lang="en">Target children 0–6</div>
+      <div class="mstat-label" data-lang="id">Target anak usia 0–6</div>
+    </div>
+    <div class="mstat">
+      <div class="mstat-val">[X]%</div>
+      <div class="mstat-label" data-lang="en">Annual market growth</div>
+      <div class="mstat-label" data-lang="id">Pertumbuhan pasar tahunan</div>
+    </div>
+    <div class="mstat">
+      <div class="mstat-val">IDR [X]T</div>
+      <div class="mstat-label" data-lang="en">Premium segment size</div>
+      <div class="mstat-label" data-lang="id">Ukuran segmen premium</div>
+    </div>
+    <div class="mstat">
+      <div class="mstat-val">< 5%</div>
+      <div class="mstat-label" data-lang="en">Branded penetration</div>
+      <div class="mstat-label" data-lang="id">Penetrasi brand</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PORTFOLIO ════════════════════════════════════════════════ -->
+<section class="portfolio-section" id="portfolio">
+  <div class="section-label">
+    <span data-lang="en">Portfolio</span>
+    <span data-lang="id">Portofolio</span>
+  </div>
+  <h2 class="section-title reveal" data-lang="en">Two Brands. One Proven Playbook.</h2>
+  <h2 class="section-title reveal" data-lang="id">Dua Brand. Satu Playbook yang Terbukti.</h2>
+
+  <div class="portfolio-cards">
+    <!-- Kids Space -->
+    <div class="portfolio-card reveal">
+      <div class="pcard-header">
+        <div class="pcard-tag" data-lang="en">Business 01 · Bengkulu</div>
+        <div class="pcard-tag" data-lang="id">Bisnis 01 · Bengkulu</div>
+        <div class="pcard-title">Kids Space</div>
+        <div class="pcard-sub" data-lang="en">The Proof of Concept</div>
+        <div class="pcard-sub" data-lang="id">Bukti Konsep</div>
+      </div>
+      <div class="pcard-stats">
+        <div class="pstat">
+          <div class="pstat-val">[X]</div>
+          <div class="pstat-label" data-lang="en">Students</div>
+          <div class="pstat-label" data-lang="id">Siswa</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-val">[X]%</div>
+          <div class="pstat-label" data-lang="en">YoY Growth</div>
+          <div class="pstat-label" data-lang="id">Pertumbuhan YoY</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-val">[X]+</div>
+          <div class="pstat-label" data-lang="en">Educators</div>
+          <div class="pstat-label" data-lang="id">Pendidik</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-val">IDR [X]M</div>
+          <div class="pstat-label" data-lang="en">Monthly Revenue</div>
+          <div class="pstat-label" data-lang="id">Pendapatan Bulanan</div>
+        </div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-section">
+          <div class="pcard-section-title" data-lang="en">Concept & Positioning</div>
+          <div class="pcard-section-title" data-lang="id">Konsep & Positioning</div>
+          <ul class="pcard-list">
+            <li data-lang="en">First structured play-based preschool in Bengkulu</li>
+            <li data-lang="id">Prasekolah berbasis bermain terstruktur pertama di Bengkulu</li>
+            <li data-lang="en">Target: middle-class families seeking quality alternatives</li>
+            <li data-lang="id">Target: keluarga kelas menengah yang mencari alternatif berkualitas</li>
+            <li data-lang="en">Differentiated by bilingual curriculum & trained educators</li>
+            <li data-lang="id">Diferensiasi melalui kurikulum bilingual & pendidik terlatih</li>
+          </ul>
+        </div>
+        <div class="pcard-section">
+          <div class="pcard-section-title" data-lang="en">Systems I Built</div>
+          <div class="pcard-section-title" data-lang="id">Sistem yang Saya Bangun</div>
+          <ul class="pcard-list">
+            <li data-lang="en">Play-based bilingual curriculum (ages 2–6)</li>
+            <li data-lang="id">Kurikulum bilingual berbasis bermain (usia 2–6 tahun)</li>
+            <li data-lang="en">Teacher recruitment, training & performance framework</li>
+            <li data-lang="id">Rekrutmen guru, pelatihan & kerangka performa</li>
+            <li data-lang="en">Parent communication & retention systems</li>
+            <li data-lang="id">Sistem komunikasi orang tua & retensi siswa</li>
+            <li data-lang="en">Daily operations SOP & facility management</li>
+            <li data-lang="id">SOP operasional harian & manajemen fasilitas</li>
+          </ul>
+        </div>
+        <div class="challenge-box">
+          <div class="challenge-label" data-lang="en">Challenge → Solution</div>
+          <div class="challenge-label" data-lang="id">Tantangan → Solusi</div>
+          <p data-lang="en">No qualified preschool teachers existed locally → Built a proprietary in-house training program that certified [X] educators within [X] months.</p>
+          <p data-lang="id">Tidak ada guru prasekolah berkualifikasi di daerah → Membangun program pelatihan in-house eksklusif yang mensertifikasi [X] pendidik dalam [X] bulan.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meraki House -->
+    <div class="portfolio-card reveal reveal-delay-1">
+      <div class="pcard-header" style="background: linear-gradient(135deg, #1B2B4B 50%, #2D4270);">
+        <div class="pcard-tag" data-lang="en">Business 02 · Bandung</div>
+        <div class="pcard-tag" data-lang="id">Bisnis 02 · Bandung</div>
+        <div class="pcard-title">Meraki House</div>
+        <div class="pcard-sub" data-lang="en">The Premium Evolution</div>
+        <div class="pcard-sub" data-lang="id">Evolusi Premium</div>
+      </div>
+      <div class="pcard-stats">
+        <div class="pstat">
+          <div class="pstat-val">[X]</div>
+          <div class="pstat-label" data-lang="en">Students</div>
+          <div class="pstat-label" data-lang="id">Siswa</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-val">[X]%</div>
+          <div class="pstat-label" data-lang="en">Price Premium</div>
+          <div class="pstat-label" data-lang="id">Premium Harga</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-val">[X]%</div>
+          <div class="pstat-label" data-lang="en">Parent Retention</div>
+          <div class="pstat-label" data-lang="id">Retensi Orang Tua</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-val">IDR [X]M</div>
+          <div class="pstat-label" data-lang="en">Monthly Revenue</div>
+          <div class="pstat-label" data-lang="id">Pendapatan Bulanan</div>
+        </div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-section">
+          <div class="pcard-section-title" data-lang="en">Concept & Positioning</div>
+          <div class="pcard-section-title" data-lang="id">Konsep & Positioning</div>
+          <ul class="pcard-list">
+            <li data-lang="en">Premium holistic early childhood brand in competitive Bandung</li>
+            <li data-lang="id">Brand pendidikan anak usia dini holistik premium di Bandung yang kompetitif</li>
+            <li data-lang="en">Aesthetic-forward design, Reggio-inspired learning environment</li>
+            <li data-lang="id">Desain estetik, lingkungan belajar terinspirasi Reggio Emilia</li>
+            <li data-lang="en">Higher price point — built for brand loyalty and community</li>
+            <li data-lang="id">Harga lebih tinggi — dibangun untuk loyalitas brand dan komunitas</li>
+          </ul>
+        </div>
+        <div class="pcard-section">
+          <div class="pcard-section-title" data-lang="en">Systems I Built</div>
+          <div class="pcard-section-title" data-lang="id">Sistem yang Saya Bangun</div>
+          <ul class="pcard-list">
+            <li data-lang="en">Premium brand identity: visual, spatial & experience design</li>
+            <li data-lang="id">Identitas brand premium: desain visual, spasial & pengalaman</li>
+            <li data-lang="en">Reggio-inspired pedagogy adapted for Indonesian context</li>
+            <li data-lang="id">Pedagogi Reggio yang diadaptasi untuk konteks Indonesia</li>
+            <li data-lang="en">Digital parent engagement & content marketing funnel</li>
+            <li data-lang="id">Funnel pemasaran konten & keterlibatan orang tua digital</li>
+            <li data-lang="en">Admissions pipeline, enrollment conversion & retention playbook</li>
+            <li data-lang="id">Pipeline pendaftaran, konversi enrollment & playbook retensi</li>
+          </ul>
+        </div>
+        <div class="challenge-box">
+          <div class="challenge-label" data-lang="en">Challenge → Solution</div>
+          <div class="challenge-label" data-lang="id">Tantangan → Solusi</div>
+          <p data-lang="en">Launching a premium brand to skeptical first-time buyers → Developed a signature open-house experience and referral program driving [X]% of enrollments through word-of-mouth.</p>
+          <p data-lang="id">Meluncurkan brand premium kepada pembeli pertama yang skeptis → Mengembangkan pengalaman open-house khas dan program referral yang menghasilkan [X]% pendaftaran melalui word-of-mouth.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRACK RECORD ════════════════════════════════════════════ -->
+<section class="track-section" id="track">
+  <div class="section-label">
+    <span data-lang="en">Track Record</span>
+    <span data-lang="id">Rekam Jejak</span>
+  </div>
+  <h2 class="section-title reveal" data-lang="en">What I've Proven Across Two Businesses</h2>
+  <h2 class="section-title reveal" data-lang="id">Apa yang Telah Saya Buktikan di Dua Bisnis</h2>
+
+  <div class="track-grid">
+    <div class="track-card reveal">
+      <div class="track-num">01</div>
+      <div class="track-content">
+        <h3 data-lang="en">I Build from Zero</h3>
+        <h3 data-lang="id">Saya Membangun dari Nol</h3>
+        <p data-lang="en">Both schools were launched without a franchise model, external consultants, or established brand recognition. Everything — curriculum, ops, hiring, marketing — was built in-house.</p>
+        <p data-lang="id">Kedua sekolah diluncurkan tanpa model franchise, konsultan eksternal, atau pengakuan brand yang sudah ada. Semuanya — kurikulum, operasional, perekrutan, pemasaran — dibangun secara internal.</p>
+      </div>
+    </div>
+    <div class="track-card reveal reveal-delay-1">
+      <div class="track-num">02</div>
+      <div class="track-content">
+        <h3 data-lang="en">I Build Systems, Not Just Schools</h3>
+        <h3 data-lang="id">Saya Membangun Sistem, Bukan Sekadar Sekolah</h3>
+        <p data-lang="en">SOPs, educator frameworks, enrollment funnels, and parent engagement systems that operate independently of my daily presence.</p>
+        <p data-lang="id">SOP, kerangka pendidik, funnel pendaftaran, dan sistem keterlibatan orang tua yang beroperasi secara mandiri tanpa kehadiran saya setiap hari.</p>
+      </div>
+    </div>
+    <div class="track-card reveal reveal-delay-2">
+      <div class="track-num">03</div>
+      <div class="track-content">
+        <h3 data-lang="en">I Understand the Customer Deeply</h3>
+        <h3 data-lang="id">Saya Memahami Pelanggan Secara Mendalam</h3>
+        <p data-lang="en">Indonesian parents in Tier 1–2 cities. Their anxieties, aspirations, and triggers. I've converted [X]+ families and maintained [X]%+ retention.</p>
+        <p data-lang="id">Orang tua Indonesia di kota Tier 1–2. Kekhawatiran, aspirasi, dan pemicu keputusan mereka. Saya telah mengonversi [X]+ keluarga dan mempertahankan retensi [X]%+.</p>
+      </div>
+    </div>
+    <div class="track-card reveal reveal-delay-3">
+      <div class="track-num">04</div>
+      <div class="track-content">
+        <h3 data-lang="en">I Can Do It Again — In Any Market</h3>
+        <h3 data-lang="id">Saya Bisa Melakukannya Lagi — Di Pasar Mana Pun</h3>
+        <p data-lang="en">Two different cities. Two different positioning strategies. Two operating models. Both work. The playbook is proven and transferable.</p>
+        <p data-lang="id">Dua kota berbeda. Dua strategi positioning berbeda. Dua model operasional. Keduanya berhasil. Playbook ini telah terbukti dan dapat ditransfer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SYSTEMS ══════════════════════════════════════════════════ -->
+<section class="systems-section" id="systems">
+  <div class="section-label">
+    <span data-lang="en">Scalable Systems</span>
+    <span data-lang="id">Sistem yang Dapat Diskalakan</span>
+  </div>
+  <h2 class="section-title reveal" data-lang="en">The Repeatable Operating Playbook</h2>
+  <h2 class="section-title reveal" data-lang="id">Playbook Operasional yang Dapat Diulang</h2>
+  <p class="systems-sub reveal" data-lang="en">Every system I built is documented, teachable, and designed to scale.</p>
+  <p class="systems-sub reveal" data-lang="id">Setiap sistem yang saya bangun terdokumentasi, dapat diajarkan, dan dirancang untuk berkembang.</p>
+
+  <div class="systems-grid">
+    <div class="sys-card reveal">
+      <div class="sys-icon">📚</div>
+      <div class="sys-title" data-lang="en">Curriculum & Pedagogy</div>
+      <div class="sys-title" data-lang="id">Kurikulum & Pedagogi</div>
+      <ul class="sys-list">
+        <li data-lang="en">Age-segmented learning modules (2–6 yrs)</li>
+        <li data-lang="id">Modul belajar sesuai usia (2–6 tahun)</li>
+        <li data-lang="en">Bilingual & Reggio-inspired frameworks</li>
+        <li data-lang="id">Kerangka bilingual & terinspirasi Reggio</li>
+        <li data-lang="en">Monthly theme planning + educator guides</li>
+        <li data-lang="id">Perencanaan tema bulanan + panduan pendidik</li>
+        <li data-lang="en">Learning outcome tracking per child</li>
+        <li data-lang="id">Pelacakan hasil belajar per anak</li>
+      </ul>
+    </div>
+    <div class="sys-card reveal reveal-delay-1">
+      <div class="sys-icon">👥</div>
+      <div class="sys-title" data-lang="en">People & Culture</div>
+      <div class="sys-title" data-lang="id">Sumber Daya Manusia & Budaya</div>
+      <ul class="sys-list">
+        <li data-lang="en">Educator hiring rubric & interview process</li>
+        <li data-lang="id">Rubrik rekrutmen pendidik & proses wawancara</li>
+        <li data-lang="en">On-boarding + in-house certification</li>
+        <li data-lang="id">On-boarding + sertifikasi internal</li>
+        <li data-lang="en">Monthly performance reviews & coaching</li>
+        <li data-lang="id">Evaluasi performa bulanan & coaching</li>
+        <li data-lang="en">Teacher retention & development program</li>
+        <li data-lang="id">Program retensi & pengembangan guru</li>
+      </ul>
+    </div>
+    <div class="sys-card reveal reveal-delay-2">
+      <div class="sys-icon">⚙️</div>
+      <div class="sys-title" data-lang="en">Operations & Finance</div>
+      <div class="sys-title" data-lang="id">Operasional & Keuangan</div>
+      <ul class="sys-list">
+        <li data-lang="en">Daily ops SOP & facility checklists</li>
+        <li data-lang="id">SOP operasional harian & checklist fasilitas</li>
+        <li data-lang="en">Student attendance & incident systems</li>
+        <li data-lang="id">Sistem kehadiran siswa & insiden</li>
+        <li data-lang="en">Revenue tracking, budgeting & cost controls</li>
+        <li data-lang="id">Pelacakan pendapatan, anggaran & kontrol biaya</li>
+        <li data-lang="en">Vendor & supplier management</li>
+        <li data-lang="id">Manajemen vendor & pemasok</li>
+      </ul>
+    </div>
+    <div class="sys-card reveal reveal-delay-3">
+      <div class="sys-icon">📣</div>
+      <div class="sys-title" data-lang="en">Marketing & Enrollment</div>
+      <div class="sys-title" data-lang="id">Pemasaran & Pendaftaran</div>
+      <ul class="sys-list">
+        <li data-lang="en">Brand positioning & visual identity kit</li>
+        <li data-lang="id">Positioning brand & kit identitas visual</li>
+        <li data-lang="en">Parent funnel: awareness → enrollment</li>
+        <li data-lang="id">Funnel orang tua: kesadaran → pendaftaran</li>
+        <li data-lang="en">Open-house & trial class playbook</li>
+        <li data-lang="id">Playbook open-house & kelas percobaan</li>
+        <li data-lang="en">Referral program & community activation</li>
+        <li data-lang="id">Program referral & aktivasi komunitas</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VISION ═══════════════════════════════════════════════════ -->
+<section class="vision-section" id="vision">
+  <div class="section-label">
+    <span data-lang="en">Vision & Next Chapter</span>
+    <span data-lang="id">Visi & Babak Selanjutnya</span>
+  </div>
+  <h2 class="section-title reveal" data-lang="en">From 2 Schools to a National Brand</h2>
+  <h2 class="section-title reveal" data-lang="id">Dari 2 Sekolah Menjadi Brand Nasional</h2>
+
+  <div class="vision-quote reveal">
+    <p data-lang="en">"I've built two schools. I've proven the model. Now I'm building the infrastructure for the brand that will own the premium early childhood education space in Indonesia — city by city, child by child."</p>
+    <p data-lang="id">"Saya telah membangun dua sekolah. Saya telah membuktikan modelnya. Kini saya membangun infrastruktur untuk brand yang akan mendominasi ruang pendidikan anak usia dini premium di Indonesia — kota demi kota, anak demi anak."</p>
+  </div>
+
+  <div class="phases">
+    <div class="phase-card reveal">
+      <div class="phase-num">1</div>
+      <div class="phase-label" data-lang="en">Phase One</div>
+      <div class="phase-label" data-lang="id">Fase Satu</div>
+      <div class="phase-title" data-lang="en">Systematize</div>
+      <div class="phase-title" data-lang="id">Sistematisasi</div>
+      <div class="phase-body" data-lang="en">Finalize and document the full operating playbook. Stress-test the model. Build the team infrastructure. Prepare for controlled replication.</div>
+      <div class="phase-body" data-lang="id">Finalisasi dan dokumentasikan playbook operasional lengkap. Uji ketahanan model. Bangun infrastruktur tim. Persiapkan replikasi terkontrol.</div>
+    </div>
+    <div class="phase-card reveal reveal-delay-1">
+      <div class="phase-num">2</div>
+      <div class="phase-label" data-lang="en">Phase Two</div>
+      <div class="phase-label" data-lang="id">Fase Dua</div>
+      <div class="phase-title" data-lang="en">Expand</div>
+      <div class="phase-title" data-lang="id">Ekspansi</div>
+      <div class="phase-body" data-lang="en">Open [X] new locations in high-potential Tier 1–2 cities. Recruit and certify site leads. Validate unit economics across multiple locations.</div>
+      <div class="phase-body" data-lang="id">Buka [X] lokasi baru di kota Tier 1–2 berpotensi tinggi. Rekrut dan sertifikasi pemimpin lokasi. Validasi unit economics di berbagai lokasi.</div>
+    </div>
+    <div class="phase-card reveal reveal-delay-2">
+      <div class="phase-num">3</div>
+      <div class="phase-label" data-lang="en">Phase Three</div>
+      <div class="phase-label" data-lang="id">Fase Tiga</div>
+      <div class="phase-title" data-lang="en">Brand at Scale</div>
+      <div class="phase-title" data-lang="id">Brand di Skala Besar</div>
+      <div class="phase-body" data-lang="en">Build the brand layer: national presence, parent community, proprietary content & digital touchpoints. Become the category-defining name in Indonesian early education.</div>
+      <div class="phase-body" data-lang="id">Bangun lapisan brand: kehadiran nasional, komunitas orang tua, konten eksklusif & touchpoint digital. Menjadi nama yang mendefinisikan kategori pendidikan anak usia dini Indonesia.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY ME ════════════════════════════════════════════════════ -->
+<section class="whyme-section" id="founder">
+  <div class="section-label">
+    <span data-lang="en">Why This Founder</span>
+    <span data-lang="id">Mengapa Founder Ini</span>
+  </div>
+  <h2 class="section-title reveal" data-lang="en">Why I Am the Right Person to Build This</h2>
+  <h2 class="section-title reveal" data-lang="id">Mengapa Saya adalah Orang yang Tepat untuk Membangun Ini</h2>
+
+  <div class="whyme-grid">
+    <div class="whyme-card reveal">
+      <h3 data-lang="en">🎯 Operator DNA</h3>
+      <h3 data-lang="id">🎯 DNA Operator</h3>
+      <p data-lang="en">I haven't theorized about preschool — I've run one. I know the 6 AM fire drills, the parent escalations, the teacher who quits the night before class. I've solved them all.</p>
+      <p data-lang="id">Saya tidak sekadar berteori tentang prasekolah — saya menjalankannya. Saya tahu latihan darurat jam 6 pagi, eskalasi dari orang tua, guru yang berhenti malam sebelum kelas. Saya telah menyelesaikan semuanya.</p>
+    </div>
+    <div class="whyme-card reveal reveal-delay-1">
+      <h3 data-lang="en">🔍 Market Insider</h3>
+      <h3 data-lang="id">🔍 Orang Dalam Pasar</h3>
+      <p data-lang="en">I've sold to Indonesian parents across multiple cities. I know their language, their fears, their aspirations. This is not a market I'm entering — it's one I've lived in.</p>
+      <p data-lang="id">Saya telah berjualan kepada orang tua Indonesia di berbagai kota. Saya tahu bahasa, ketakutan, dan aspirasi mereka. Ini bukan pasar yang baru saya masuki — ini adalah pasar yang sudah saya tinggali.</p>
+    </div>
+    <div class="whyme-card reveal reveal-delay-2">
+      <h3 data-lang="en">⚙️ Systems Thinker</h3>
+      <h3 data-lang="id">⚙️ Pemikir Sistemik</h3>
+      <p data-lang="en">I build with scale in mind. Every process I create is documented and teachable. I don't build businesses that need me to run them.</p>
+      <p data-lang="id">Saya membangun dengan skala dalam pikiran. Setiap proses yang saya buat terdokumentasi dan dapat diajarkan. Saya tidak membangun bisnis yang membutuhkan saya untuk menjalankannya.</p>
+    </div>
+    <div class="whyme-card reveal">
+      <h3 data-lang="en">🔄 Repeatable Founder</h3>
+      <h3 data-lang="id">🔄 Founder yang Dapat Mengulang</h3>
+      <p data-lang="en">Most founders build once. I've built twice — in different cities, with different brand positions, and both work. I don't get lucky. I execute.</p>
+      <p data-lang="id">Kebanyakan founder membangun sekali. Saya telah membangun dua kali — di kota berbeda, dengan positioning brand berbeda, dan keduanya berhasil. Saya tidak mengandalkan keberuntungan. Saya mengeksekusi.</p>
+    </div>
+    <div class="whyme-card reveal reveal-delay-1">
+      <h3 data-lang="en">❤️ Sector Conviction</h3>
+      <h3 data-lang="id">❤️ Keyakinan pada Sektor</h3>
+      <p data-lang="en">Early education is a mission, not just a market. I am building something I believe in — and that conviction drives unreasonable persistence.</p>
+      <p data-lang="id">Pendidikan anak usia dini adalah misi, bukan sekadar pasar. Saya membangun sesuatu yang saya yakini — dan keyakinan itu mendorong kegigihan yang luar biasa.</p>
+    </div>
+    <div class="whyme-card reveal reveal-delay-2">
+      <h3 data-lang="en">🚀 Ready to Scale</h3>
+      <h3 data-lang="id">🚀 Siap untuk Berkembang</h3>
+      <p data-lang="en">The playbook exists. The proof points are real. I am not here to start — I am here to grow. What I need now is capital and a partner who believes in the vision.</p>
+      <p data-lang="id">Playbook sudah ada. Bukti nyata sudah ada. Saya bukan di sini untuk memulai — saya di sini untuk tumbuh. Yang saya butuhkan sekarang adalah modal dan mitra yang percaya pada visi ini.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══════════════════════════════════════════════════════ -->
+<section class="cta-section" id="contact">
+  <h2 class="reveal" data-lang="en">Let's Build This<br><em>Together.</em></h2>
+  <h2 class="reveal" data-lang="id">Mari Bangun Ini<br><em>Bersama.</em></h2>
+  <p class="reveal reveal-delay-1" data-lang="en">I am raising [IDR/USD X] to expand the model to [X] new cities over [X] years. I have the proof of concept. I have the playbook. I have the conviction. What I need is a partner who believes in what quality early education can become at scale in Indonesia.</p>
+  <p class="reveal reveal-delay-1" data-lang="id">Saya sedang menggalang [IDR/USD X] untuk mengembangkan model ke [X] kota baru selama [X] tahun. Saya memiliki bukti konsep. Saya memiliki playbook. Saya memiliki keyakinan. Yang saya butuhkan adalah mitra yang percaya pada apa yang bisa dicapai oleh pendidikan anak usia dini berkualitas di Indonesia dalam skala besar.</p>
+  <a href="mailto:your@email.com" class="cta-contact reveal reveal-delay-2">
+    <span data-lang="en">Get in Touch</span>
+    <span data-lang="id">Hubungi Saya</span>
+    <small>[your@email.com]</small>
+  </a>
+  <div class="cta-badges reveal reveal-delay-3">
+    <span class="cta-badge">Kids Space Bengkulu</span>
+    <span class="cta-badge">Meraki House Bandung</span>
+    <span class="cta-badge" data-lang="en">Early Education · Indonesia</span>
+    <span class="cta-badge" data-lang="id">Pendidikan Anak Usia Dini · Indonesia</span>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Founder Portfolio · Kids Space Bengkulu · Meraki House Bandung</p>
+</footer>
+
+<script>
+  // ─── Language Toggle ───────────────────────────────────────
+  function setLang(lang) {
+    document.body.classList.remove('lang-en', 'lang-id');
+    document.body.classList.add('lang-' + lang);
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  }
+
+  // ─── Scroll Reveal ─────────────────────────────────────────
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // ─── Nav active link ───────────────────────────────────────
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+</script>
+</body>
+</html>
